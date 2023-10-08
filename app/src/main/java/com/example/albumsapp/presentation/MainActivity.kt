@@ -1,4 +1,4 @@
-package com.example.albumsapp
+package com.example.albumsapp.presentation
 
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
@@ -9,6 +9,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import com.example.albumsapp.R
 import com.example.albumsapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

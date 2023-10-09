@@ -1,4 +1,4 @@
-package com.example.albumsapp.presentation
+package com.example.albumsapp.presentation.albumDetailsScreen
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

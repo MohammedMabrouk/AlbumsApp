@@ -61,9 +61,9 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.1")
 
     //Dagger - Hilt
-    implementation("com.google.dagger:hilt-android:2.38.1")
-    kapt("com.google.dagger:hilt-android-compiler:2.37")
-    implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
+    implementation("com.google.dagger:hilt-android:2.48")
+    kapt("com.google.dagger:hilt-android-compiler:2.48")
+//    implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
     kapt("androidx.hilt:hilt-compiler:1.0.0")
 
     // Retrofit

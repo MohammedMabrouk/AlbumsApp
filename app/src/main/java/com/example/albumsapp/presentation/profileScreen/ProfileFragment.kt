@@ -1,4 +1,4 @@
-package com.example.albumsapp.presentation
+package com.example.albumsapp.presentation.profileScreen
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -13,7 +13,7 @@ import com.example.albumsapp.databinding.FragmentFirstBinding
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class FirstFragment : Fragment() {
+class ProfileFragment : Fragment() {
 
     private var _binding: FragmentFirstBinding? = null
 

@@ -11,11 +11,21 @@ import android.view.Menu
 import android.view.MenuItem
 import com.example.albumsapp.R
 import com.example.albumsapp.databinding.ActivityMainBinding
+import com.example.albumsapp.domain.useCases.GetUserInfoUseCase
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+
+    @Inject
+    lateinit var getUserInfoUseCase: GetUserInfoUseCase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +42,10 @@ class MainActivity : AppCompatActivity() {
         binding.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
+        }
+
+        MainScope().launch {
+            getUserInfoUseCase.invoke(3)
         }
     }
 

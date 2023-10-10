@@ -4,20 +4,20 @@ import com.example.albumsapp.domain.model.User
 import com.example.albumsapp.domain.model.Address as DomainAddress
 
 data class GetUserResponseDto(
-    val address: Address? = null,
-    val company: Company? = null,
-    val email: String? = null,
-    val id: Int = 0,
-    val name: String? = null,
-    val phone: String? = null,
-    val username: String? = null,
-    val website: String? = null
+    val address: Address,
+    val company: Company,
+    val email: String,
+    val id: Int,
+    val name: String,
+    val phone: String,
+    val username: String,
+    val website: String
 )
 
 fun GetUserResponseDto.toUser() = User(
     id,
-    name ?: "",
-    address?.let {
+    name,
+    address.let {
         DomainAddress(
             it.city,
             it.street,

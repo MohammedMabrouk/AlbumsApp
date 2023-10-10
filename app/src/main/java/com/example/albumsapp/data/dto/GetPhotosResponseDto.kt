@@ -14,6 +14,6 @@ data class GetPhotosResponseDtoItem(
 
 fun GetPhotosResponseDto.toAlbumPhotosList(): List<AlbumPhoto> {
     return this.map { item ->
-        AlbumPhoto(item.thumbnailUrl, item.url)
+        AlbumPhoto(item.title, item.thumbnailUrl, item.url)
     }
 }

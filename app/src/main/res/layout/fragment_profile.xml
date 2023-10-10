@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.example.albumsapp.presentation.profile.ProfileViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.profile.ProfileFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:id="@+id/ll_user_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:invisibleUnless="@{vm.isUserInfoLoaded}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textColor="@color/gray"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@{vm.userInfo.name}"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    tools:text="Mohamed Mabrouk" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Address"
+                    android:textColor="@color/gray"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@{vm.userInfo.fullAddress}"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    tools:text="Cairo, Egypt" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_user_albums"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ll_user_info">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Albums"
+                    android:textColor="@color/gray"
+                    android:textSize="14sp"
+                    app:invisibleUnless="@{vm.isUserAlbumsLoaded}" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvAlbums"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="200dp"
+                    app:invisibleUnless="@{vm.isUserAlbumsLoaded}" />
+
+            </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:goneUnless="@{vm.isUserInfoLoading}"
+                app:layout_constraintBottom_toBottomOf="@+id/ll_user_info"
+                app:layout_constraintEnd_toEndOf="@+id/ll_user_info"
+                app:layout_constraintStart_toStartOf="@+id/ll_user_info"
+                app:layout_constraintTop_toTopOf="@+id/ll_user_info" />
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:goneUnless="@{vm.isUserAlbumsLoading}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/ll_user_info"
+                app:layout_constraintStart_toStartOf="@+id/ll_user_info"
+                app:layout_constraintTop_toTopOf="@+id/ll_user_info" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>
